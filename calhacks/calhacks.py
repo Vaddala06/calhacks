@@ -34,6 +34,19 @@ def index() -> rx.Component:
         rx.logo(),
     )
 
+# Create a form that takes in a video file. This framework is called Reflex.
+def submit_video_file() -> rx.Component:
+    return rx.container(
+        rx.color_mode.button(position="top-right"),
+        rx.heading("Submit a Video File", size="9"),
+        rx.form(
+            rx.upload(
+                id="my_upload",
+            ),
+            rx.button("Submit"),
+        ),
+    )
 
 app = rx.App()
 app.add_page(index)
+app.add_page(submit_video_file, route="/submit")
