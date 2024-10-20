@@ -1,6 +1,5 @@
 import requests
 
-# Set your Deepgram API key
 API_KEY = '65a890e9867c3dda76519eb728d08d69547761c6'
 URL = 'https://api.deepgram.com/v1/listen?model=nova-2&smart_format=true'
 
@@ -9,10 +8,8 @@ headers = {
     'Authorization': f'Token {API_KEY}'
 }
 
-# Get the audio file from the user
 audio_file_path = input("Enter the path to the audio file you want to upload: ")
 
-# Open the audio file in binary mode
 with open(audio_file_path, 'rb') as audio_file:
     # Send the POST request with the audio file
     response = requests.post(URL, headers=headers, data=audio_file)
